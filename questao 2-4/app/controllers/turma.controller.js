@@ -27,9 +27,7 @@ exports.create = (req, res) => {
 }
 // Pesquisa todas as turmas no banco de dados
 exports.findAll = (req, res) => {
-    const title = req.query.title
-    var condition = title ? { title: { [Op.like]: `%${title}%` } } : null
-    Turma.findAll({ where: condition })
+    Turma.findAll()
         .then(data => {
             res.send(data)
         })
